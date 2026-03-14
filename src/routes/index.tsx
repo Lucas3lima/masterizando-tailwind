@@ -1,12 +1,23 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Mail } from 'lucide-react';
+import { Earth, Mail } from 'lucide-react';
+import * as FileInput from '../components/form/FileInput';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
+
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from '../components/ui/input-group';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '../components/ui/select';
 import {
   Tabs,
   TabsContent,
@@ -23,7 +34,7 @@ function RouteComponent() {
     <>
       <h1 className="text-3xl font-medium text-zinc-900">Settings</h1>
 
-      <Tabs defaultValue="overview" className="mt-4 space-y-6">
+      <Tabs defaultValue="my-details" className="mt-4 space-y-6">
         <TabsList variant="line">
           <TabsTrigger
             value="my-details"
@@ -88,7 +99,7 @@ function RouteComponent() {
                   id="email"
                   defaultValue="lucaslima.code@gmail.com"
                   placeholder="email"
-                  type='email'
+                  type="email"
                 ></InputGroupInput>
                 <InputGroupAddon align={'inline-start'}>
                   <Mail className="w-5 h-5 text-zinc-500" />
@@ -97,15 +108,19 @@ function RouteComponent() {
             </div>
             <div className="grid grid-cols-form gap-3 pb-5">
               <label
-                htmlFor="x"
+                htmlFor="photo"
                 className="text-sm font-medium text-zinc-700"
               >
                 Your photo
-                <span className='text-sm mt-0.5 text-zinc-400 block'>This will be displayed on your profile.</span>
+                <span className="text-sm mt-0.5 text-zinc-400 block">
+                  This will be displayed on your profile.
+                </span>
               </label>
-              <div>
-                
-              </div>
+              <FileInput.Root className="flex items-center gap-5">
+                <FileInput.ImagePreview />
+                <FileInput.Trigger />
+                <FileInput.Control />
+              </FileInput.Root>
             </div>
             <div className="grid grid-cols-form gap-3 pb-5">
               <label
@@ -125,7 +140,43 @@ function RouteComponent() {
                 </InputGroupAddon>
               </InputGroup>
             </div>
-            
+            <div className="grid grid-cols-form gap-3 pb-5">
+              <label
+                htmlFor="country"
+                className="text-sm font-medium text-zinc-700"
+              >
+                Country
+              </label>
+              <Select>
+                <SelectTrigger className="w-full flex  gap-4">
+                  <SelectValue placeholder="Select a country" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Countries</SelectLabel>
+                    <SelectItem value="brasil">Brasil</SelectItem>
+                    <SelectItem value="eua">Estados Unidos</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+
+                
+            </div>
+            <div className="grid grid-cols-form gap-3 pb-5">
+              <label
+                htmlFor="photo"
+                className="text-sm font-medium text-zinc-700"
+              >
+                Portfolio projects
+                <span className="text-sm mt-0.5 text-zinc-400 block">
+                  Share a few snippets of your work.
+                </span>
+              </label>
+              <FileInput.Root className="flex items-center gap-5">
+                <FileInput.Trigger />
+                <FileInput.Control />
+              </FileInput.Root>
+            </div>
           </form>
         </TabsContent>
 
