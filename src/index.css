@@ -42,6 +42,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --grid-cols-app: 205px 1fr;
 }
 
 .dark {
@@ -118,6 +119,9 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --grid-template-columns-app: minmax(18rem, 20rem) 1fr;
+  --grid-template-columns-profile: max-content 1fr min-content;
+  --grid-template-columns-form: minmax(7.5rem,17rem) minmax(25rem, 1fr) minmax(0,15rem);
 }
 
 @layer base {
