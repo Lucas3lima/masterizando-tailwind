@@ -172,9 +172,10 @@ function RouteComponent() {
                   Share a few snippets of your work.
                 </span>
               </label>
-              <FileInput.Root className="flex items-center gap-5">
+              <FileInput.Root>
                 <FileInput.Trigger />
-                <FileInput.Control />
+                <FileInput.FileList />
+                <FileInput.Control multiple/>
               </FileInput.Root>
             </div>
           </form>
